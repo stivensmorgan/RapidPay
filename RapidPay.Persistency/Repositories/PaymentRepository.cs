@@ -14,9 +14,11 @@ namespace RapidPay.Persistency.Repositories
         public PaymentRepository(RapidPayContext context) =>
             _context = context;
         
-        public void Add(Payment payment)
+        public Task Add(Payment payment)
         {
             _context.PaymentHistory.Add(payment);
+
+            return Task.CompletedTask;
         }
     }
 }

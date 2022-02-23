@@ -16,6 +16,7 @@ namespace RapidPay.Services
         public AuthService
             (IEncryptService encryptService, IUnitOfWork unitOfWork, ITokenService tokenService) =>
             (this.encryptService, this.unitOfWork, this.tokenService) = (encryptService, unitOfWork, tokenService);
+
         public Task<UserDTO> Login(LoginDTO login)
         {
             string encryptedPassword = encryptService.GetHash(login.Password);

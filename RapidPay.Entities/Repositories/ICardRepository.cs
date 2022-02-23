@@ -9,12 +9,12 @@ namespace RapidPay.Entities.Interfaces
 {
     public interface ICardRepository
     {
-        void CreateCard(Card card);
+        Task CreateCard(Card card);
 
-        void UpdateCard(Card card);
+        Task UpdateCard(Card card);
 
-        Card GetCardById(int id);
+        Task<Card> GetCardById(int id);
 
-        Card GetCardByNumber(long cardNumber);
+        Task<Card> GetCardByNumber(long cardNumber);
     }
 }

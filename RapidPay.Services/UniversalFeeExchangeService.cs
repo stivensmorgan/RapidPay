@@ -34,7 +34,7 @@ namespace RapidPay.Services
 
             if (timeDiff.Minutes > changeMinutesInterval)
             {
-                lastFee = RandomNumberBetween(minValue, maxValue, decimals);
+                lastFee *= RandomNumberBetween(minValue, maxValue, decimals);
                 lastChange = now;
             }
 

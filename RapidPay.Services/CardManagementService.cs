@@ -18,7 +18,7 @@ namespace RapidPay.Services
             (this.unitOfWork, ufeService) = (_unitOfWork, _ufeService);
         public async Task<CardDTO> CreateCard(CreateCardDTO card)
         {
-            var existsCard = unitOfWork.CardRepository.GetCardByNumber(card.CardNumber);
+            var existsCard = await unitOfWork.CardRepository.GetCardByNumber(card.CardNumber);
 
             if (card.CardNumber.ToString().Length != CARD_FORMAT)
             {
@@ -42,7 +42,7 @@ namespace RapidPay.Services
                 Balance = card.Balance
             };
 
-            unitOfWork.CardRepository.CreateCard(newCard);
+            await unitOfWork.CardRepository.CreateCard(newCard);
             _ = await unitOfWork.SaveChanges();
 
             return new CardDTO()
@@ -53,27 +53,26 @@ namespace RapidPay.Services
             };
         }
 
-        public Task<CardDTO> GetCardBalance(int id)
+        public async Task<CardDTO> GetCardBalance(int id)
         {
-            var card = unitOfWork.CardRepository.GetCardById(id);
+            var card = await unitOfWork.CardRepository.GetCardById(id);
 
             if (card == null)
             {
                 throw new ArgumentException("The Card Id " + id.ToString() + " was not found");
             }
 
-            return Task.FromResult(
-                new CardDTO()
-                {
-                    Id = card.Id,
-                    CardNumber = card.CardNumber,
-                    Balance = card.Balance
-                });
+            return new CardDTO()
+            {
+                Id = card.Id,
+                CardNumber = card.CardNumber,
+                Balance = card.Balance
+            };
         }
 
         public async Task Pay(NewPaymentDTO payment)
         {
-            var card = unitOfWork.CardRepository.GetCardById(payment.IdCard);
+            var card = await unitOfWork.CardRepository.GetCardById(payment.IdCard);
 
             if (card == null)
             {
@@ -102,8 +101,8 @@ namespace RapidPay.Services
 
             Math.Round(card.Balance -= amountWithFee, 2);
 
-            unitOfWork.CardRepository.UpdateCard(card);
-            unitOfWork.PaymentRepository.Add(newPayment);
+            await unitOfWork .CardRepository.UpdateCard(card);
+            await unitOfWork.PaymentRepository.Add(newPayment);
             _ = await unitOfWork.SaveChanges();
         }
     }

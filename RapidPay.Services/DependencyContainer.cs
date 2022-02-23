@@ -15,10 +15,15 @@ namespace RapidPay.Services
             this IServiceCollection services,
             IConfiguration configuration)
         {
+            // Card Management service
             services.AddTransient<ICardManagementService, CardManagementService>();
+            // Encrypt Service
             services.AddTransient<IEncryptService, EncryptService>();
+            // Auth Service
             services.AddTransient<IAuthService, AuthService>();
 
+
+            // UFE Service
             if (!int.TryParse(configuration.GetSection("UFE:MinValue").Value, out int minValue))
             {
                 minValue = 0;
@@ -42,6 +47,8 @@ namespace RapidPay.Services
             services.AddSingleton<IUniversalFeeExchangeService>(
                 provider => new UniversalFeeExchangeService(minValue, maxValue, decimals, intervalInMinutes));
 
+
+            // Authentication Service
             string secretKey = configuration.GetSection("Authentication:SecretKey").Value;
             string issuer = configuration.GetSection("Authentication:Issuer").Value;
             string audience = configuration.GetSection("Authentication:Audience").Value;

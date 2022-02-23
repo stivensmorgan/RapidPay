@@ -11,34 +11,33 @@ namespace RapidPay.Persistency.Repositories
 {
     public class CardRepository : ICardRepository
     {
-        readonly RapidPayContext _context;
+        readonly RapidPayContext context;
 
         public CardRepository(RapidPayContext context) =>
-            _context = context;
+            this.context = context;
         
-        public void CreateCard(Card card)
+        public Task CreateCard(Card card)
         {
-            _context.Cards.Add(card);
+            context.Cards.Add(card);
+
+            return Task.CompletedTask;
         }
 
-        public void UpdateCard(Card card)
+        public Task UpdateCard(Card card)
         {
-            _context.Cards.Update(card);
+            context.Cards.Update(card);
+
+            return Task.CompletedTask;
         }
 
-        public Card GetCardByNumber(long cardNumber)
+        public Task<Card> GetCardByNumber(long cardNumber)
         {
-            return _context.Cards.Where(c => c.CardNumber == cardNumber).FirstOrDefault();
+            return context.Cards.FirstOrDefaultAsync(c => c.CardNumber == cardNumber);
         }
 
-        public Card GetCardById(int id)
+        public async Task<Card> GetCardById(int id)
         {
-            return _context.Cards.Find(id);
+            return await context.Cards.FindAsync(id);
         }
-
-        //public decimal GetCardBalance(int cardNumber)
-        //{
-        //    return 0;
-        //}
     }
 }
