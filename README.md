@@ -28,7 +28,7 @@ Now the RapidPay database is created and initialized in your SQL Server
 ## Configurations
 In the file RapidPay.Api / appsetting.json you can customize the configuration of the services
 
-**Database connection**
+__Database connection__ 
 Change the connection string foraccess to your database
 ~~~
 "ConnectionStrings": {
