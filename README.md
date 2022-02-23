@@ -10,5 +10,7 @@ Technology used in RapidPay project:
 ## Migrations
 Before run the application, please run the migration tool for create and initiale the database
 1. Change the connection string in RapidPay.Persistency / Context / RapidPayContextFactory.cs
- 
+~~~
+codigo
+~~~
 2. run
