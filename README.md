@@ -29,6 +29,7 @@ Now the RapidPay database is created and initialized in your SQL Server
 In the file `RapidPay.Api / appsetting.json` you can customize the configuration of the services
 
 * __Database connection__ 
+
 Change the connection string to access to your database
 ~~~
 "ConnectionStrings": {
@@ -37,6 +38,7 @@ Change the connection string to access to your database
 ~~~
 
 * __Universal Fee Exchange Service (UFE)__
+
 Change the UFE values accoriding to the policy
 ~~~
 "UFE": {
