@@ -37,7 +37,7 @@ Change the connection string to access to your database
   },
 ~~~
 
-* __Universal Fee Exchange Service (UFE)__
+* __Universal Fee Exchange (UFE)__ Service
 
 Change the UFE values accoriding to the policy
 ~~~
