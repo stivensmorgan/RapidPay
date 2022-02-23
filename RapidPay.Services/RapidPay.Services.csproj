@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RapidPay.Entities\RapidPay.Entities.csproj" />
+    <ProjectReference Include="..\RapidPay.Persistency\RapidPay.Persistency.csproj" />
+  </ItemGroup>
+
+</Project>
