@@ -30,10 +30,22 @@ In the file `RapidPay.Api / appsetting.json` you can customize the configuration
 
 __Database connection__ 
 
-Change the connection string foraccess to your database
+Change the connection string to access to your database
 ~~~
 "ConnectionStrings": {
     "RapidPay": "Server=localhost;Database=RapidPay;User Id=sa;YOUR-PASSWORD;"
+  },
+~~~
+
+__Universal Fee Exchange Service (UFE)__
+
+Change the UFE values accoriding to the policy
+~~~
+"UFE": {
+    "MinValue": 0,  // MIN value for randomly select the fee
+    "MaxValue": 2,  // MAX value for randomly select the fee
+    "Decimals": 2,  // decimals to use for fee
+    "IntervalInMinutes": 60 // Time in minutes for the interval to calculate the next fee
   },
 ~~~
 
