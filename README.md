@@ -25,6 +25,12 @@ update-database -p RapidPay.Persistency -s RapidPay.Persistency
 ~~~
 Now the RapidPay database is created and initialized in your SQL Server
 
+## Configurations
+In the file RapidPay.Api / appsetting.json you can customize the configuration of the services
+
+### Connection to the database
+Change the connection string for your database
+
 ## Testing 
 For testing purposes there is a user created 
 ~~~
