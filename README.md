@@ -8,7 +8,7 @@ Technology used in RapidPay project:
 * Microsoft Visual Studion 2019
 
 ### Before continue
-Please download the repor and compile the application to restores de Nuget Packages and validate everything is ok
+Please download the repo and build the solution to restore de Nuget Packages and validate the application compile without issues 
 
 ## Migrations
 Before run the application, please run the migration tool for create and initiale the database
@@ -24,4 +24,9 @@ update-database -p RapidPay.Persistency -s RapidPay.Persistency
 ~~~
 Now the RapidPay database is created and initialized in your SQL Server
 
-
+## Testing 
+For testing purposes there is a user created 
+~~~
+  UserName: stivens.morgan
+  Password: 123
+~~~
