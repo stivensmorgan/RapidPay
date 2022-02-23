@@ -1,0 +1,2 @@
+# RapidPay
+Payment provider API
