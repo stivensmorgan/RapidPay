@@ -14,10 +14,10 @@ Please download the repo and build the solution to restore de Nuget Packages and
 ## Migrations
 Before run the application, please run the migration tool for create and initiale the database
 1. Change the connection string in the file RapidPay.Persistency / Context / RapidPayContextFactory.cs
-~~~
+`
   optionsBuilder.UseSqlServer(
     "Server=localhost;Database=RapidPay;User Id=sa;Password=YOUR-PASSWORD;");
-~~~
+`
 2. Open the PM Console in Tools / Nuget Package Manager / Package Manager Console
 3. Execute the following migrations command:
 ~~~
@@ -29,6 +29,7 @@ Now the RapidPay database is created and initialized in your SQL Server
 In the file RapidPay.Api / appsetting.json you can customize the configuration of the services
 
 __Database connection__ 
+
 Change the connection string foraccess to your database
 ~~~
 "ConnectionStrings": {
