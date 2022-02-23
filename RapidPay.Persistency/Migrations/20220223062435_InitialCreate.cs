@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RapidPay.Persistency.Migrations
@@ -53,6 +54,8 @@ namespace RapidPay.Persistency.Migrations
                 {
                     table.PrimaryKey("PK_PaymentHistory", x => x.Id);
                 });
+
+            migrationBuilder.Sql("INSERT INTO Users (UserName, Password) VALUES ('stivens.morgan', '202cb962ac59075b964b07152d234b70')");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -66,5 +69,7 @@ namespace RapidPay.Persistency.Migrations
             migrationBuilder.DropTable(
                 name: "PaymentHistory");
         }
+
+        
     }
 }

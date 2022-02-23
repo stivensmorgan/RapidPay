@@ -15,14 +15,14 @@ namespace RapidPay.Persistency.Repositories
             this.context = context;
         public User Authenticate(string userName, string password)
         {
-            //return context.Users.FirstOrDefault(u => u.UserName == userName && u.Password == password);
+            return context.Users.FirstOrDefault(u => u.UserName == userName && u.Password == password);
 
-            return new User()
-            {
-                Id = 1,
-                UserName = "stivens.morgan",
-                Password = "123"
-            };
+            //return new User()
+            //{
+            //    Id = 1,
+            //    UserName = "stivens.morgan",
+            //    Password = "123"
+            //};
         }
     }
 }

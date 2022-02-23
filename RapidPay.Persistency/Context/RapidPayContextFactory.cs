@@ -24,5 +24,6 @@ namespace RapidPay.Persistency.Context
 
             return new RapidPayContext(optionsBuilder.Options);
         }
+
     }
 }
