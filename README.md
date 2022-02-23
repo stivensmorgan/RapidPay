@@ -6,6 +6,7 @@ Technology used in RapidPay project:
 * SQL Server Express 2019
 * EntityFramework 5
 * Microsoft Visual Studion 2019
+* Swagger
 
 ### Before continue
 Please download the repo and build the solution to restore de Nuget Packages and validate the application compile without issues 
