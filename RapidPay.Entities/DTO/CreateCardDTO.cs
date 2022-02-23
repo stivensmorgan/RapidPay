@@ -8,6 +8,7 @@ namespace RapidPay.Entities.DTO
 {
     public class CreateCardDTO
     {
+        public int IdUser { get; set; }
         public long CardNumber { get; set; }
         public decimal Balance { get; set; }
     }

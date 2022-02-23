@@ -60,7 +60,7 @@ namespace RapidPay.Api.Controllers
             try
             {
                 await cardService.Pay(payment);
-                return Ok();
+                return Ok("Payment Successed");
             }
             catch (Exception ex)
             {

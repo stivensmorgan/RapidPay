@@ -37,6 +37,7 @@ namespace RapidPay.Services
 
             Card newCard = new()
             {
+                IdUser = card.IdUser,
                 CardNumber = card.CardNumber,
                 Balance = card.Balance
             };
