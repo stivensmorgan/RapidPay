@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RapidPay.Api.ViewModel;
 using RapidPay.Entities.DTO;
 using RapidPay.Entities.Interfaces;
 using RapidPay.Entities.Model;
@@ -33,7 +34,11 @@ namespace RapidPay.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(
+                    new ErrorResponse()
+                    {
+                        Message = ex.Message
+                    });
             }
         }
 
@@ -49,7 +54,11 @@ namespace RapidPay.Api.Controllers
             }
             catch(Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(
+                    new ErrorResponse()
+                    {
+                        Message = ex.Message
+                    });
             }
         }
 
@@ -60,11 +69,19 @@ namespace RapidPay.Api.Controllers
             try
             {
                 await cardService.Pay(payment);
-                return Ok("Payment Successed");
+                return Ok(
+                    new
+                    {
+                        Message = "Payment Successed"
+                    });
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(
+                    new ErrorResponse()
+                    {
+                        Message = ex.Message
+                    });
             }
         }
     }

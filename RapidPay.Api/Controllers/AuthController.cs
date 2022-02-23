@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RapidPay.Api.ViewModel;
 using RapidPay.Entities.DTO;
 using RapidPay.Entities.Interfaces;
 using System;
@@ -29,7 +30,11 @@ namespace RapidPay.Api.Controllers
             }
             catch(Exception ex)
             {
-                return Unauthorized(ex.Message);
+                return Unauthorized(
+                    new ErrorResponse()
+                    {
+                        Message = ex.Message
+                    });
             }
         }
     }

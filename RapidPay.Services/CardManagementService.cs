@@ -80,13 +80,11 @@ namespace RapidPay.Services
             }
 
             decimal fee = ufeService.GetFee();
-            decimal amountWithFee = Math.Round(payment.Amount + payment.Amount * (fee / 100), 2);
+            decimal amountWithFee = payment.Amount + fee;
 
             if (amountWithFee > card.Balance)
             {
-                throw new ArgumentException("Insufficient funds. Balance:" + card.Balance.ToString() +
-                    " Amount:" + payment.Amount.ToString() + " Fee:" + fee.ToString() +
-                    " AmountWithFee:" + amountWithFee.ToString());
+                throw new ArgumentException("Insufficient funds");
             }
 
             Payment newPayment = new()
@@ -96,10 +94,10 @@ namespace RapidPay.Services
                 Amount = payment.Amount,
                 Fee = fee,
                 DateOfPayment = DateTimeOffset.Now,
-                Balance = Math.Round(card.Balance - amountWithFee, 2)
+                Balance = card.Balance - amountWithFee
             };
 
-            Math.Round(card.Balance -= amountWithFee, 2);
+            card.Balance -= amountWithFee;
 
             await unitOfWork .CardRepository.UpdateCard(card);
             await unitOfWork.PaymentRepository.Add(newPayment);
