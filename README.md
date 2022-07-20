@@ -8,6 +8,8 @@ Technology used in RapidPay project:
 * Microsoft Visual Studio 2019
 * Swagger
 
+![MarineGEO circle logo](/MicrosoftTeams-image.png "Sequence")
+
 ### Before continue
 Please download the repo and build the solution to restore de Nuget Packages and validate the application compile without issues 
 
